@@ -51,6 +51,7 @@ package bot {
         
         +add_motor()
         +add_camera()
+        +start_mqtt()
     }
 }
 
