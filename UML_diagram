@@ -1,60 +1,66 @@
 @startuml
 
-package motor {
-    class motor{
-        +enabled
-        +max_RPM
-        +max_speed
-        
-        +pin_PWM
-        +pin_encoder_A
-        +pin_encoder_B
-        
-        +enable()
-        +disable()
-        
-        +stop()
-        +set_speed_rpm()
-        +set_speed_ms()
-        
-        +set_PWM()
-        +read_encoder_A()
-        +read_encoder_B()
-        
-        +calculate_speed()
-        
-        +set_PWM_pin()
-        +set_encoder_pins()
-    }
-}
+package Python_Rpi {
+    package motor {
+        class motor{
+            +enabled
+            +max_RPM
+            +max_speed
 
-package communication {
-    class MQTT_comms{
-        +broker_ip
-        
-        +connect()
-        +send()
+            +pin_PWM
+            +pin_encoder_A
+            +pin_encoder_B
+
+            +enable()
+            +disable()
+
+            +stop()
+            +set_speed_rpm()
+            +set_speed_ms()
+
+            +set_PWM()
+            +read_encoder_A()
+            +read_encoder_B()
+
+            +calculate_speed()
+
+            +set_PWM_pin()
+            +set_encoder_pins()
+        }
     }
-    
-    package camera{
-        class IP_cam{
-            +start()
+
+    package communication {
+        class MQTT_comms{
+            +broker_ip
+
+            +connect()
+            +send()
+        }
+
+        package camera{
+            class IP_cam{
+                +start()
+            }
+        }
+    }
+
+    package bot {
+        class bot{
+            +motors: []
+            +cameras: []
+            +mqtt_connection
+
+            +add_motor()
+            +add_camera()
+            +start_mqtt()
         }
     }
 }
 
-package bot {
-    class bot{
-        +motors: []
-        +cameras: []
-        +mqtt_connection
-        
-        +add_motor()
-        +add_camera()
-        +start_mqtt()
+package Unity_C# {
+    class foo{
     }
 }
-
 
 bot "1" *-up- "motors" motor
 bot "1" *-up- "control" MQTT_comms
