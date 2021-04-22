@@ -46,9 +46,11 @@ package communication {
 package bot {
     class bot{
         +motors: []
+        +cameras: []
         +mqtt_connection
         
         +add_motor()
+        +add_camera()
     }
 }
 
