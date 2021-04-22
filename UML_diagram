@@ -47,6 +47,7 @@ package bot {
     class bot{
         +motors: []
         +mqtt_connection
+        +camera
     }
 }
 
