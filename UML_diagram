@@ -57,7 +57,7 @@ package Python_Rpi {
     }
 }
 
-package Unity_C# {
+package Cshrp_Unity {
     class foo{
     }
 }
