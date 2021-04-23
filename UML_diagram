@@ -62,7 +62,6 @@ package Python_Rpi {
         }
     }
 }
-}
 
 package Cshrp_Unity {
     class foo{
