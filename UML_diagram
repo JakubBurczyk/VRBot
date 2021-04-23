@@ -41,7 +41,8 @@ package Python_Rpi {
                 
                 +msg_interpreter()
             }
-
+        }
+        
         package camera{
             class IP_cam{
                 +start()
