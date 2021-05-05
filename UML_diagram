@@ -30,13 +30,19 @@ package Python_Rpi {
     }
 
     package communication {
-        class MQTT_comms{
-            +broker_ip
-
-            +connect()
-            +send()
+    
+        package mqtt_client {
+        
+            class MQTTclient{
+                +topics: []
+                
+                +MQTTclient(): broker_ip, topics[]
+                +publish_multiple(): topics[], msgs[]
+                
+                +msg_interpreter()
+            }
         }
-
+        
         package camera{
             class IP_cam{
                 +start()
@@ -63,6 +69,6 @@ package Cshrp_Unity {
 }
 
 bot "1" *-up- "motors" motor
-bot "1" *-up- "control" MQTT_comms
+bot "1" *-up- "control" MQTTclient
 bot "1" *-up- "camera" IP_cam
 @enduml
